@@ -3,12 +3,41 @@ from Personaje import Personaje
 from Razas.Sayajin import Sayajin
 from Razas.Namekiano import Namekiano
 
-otro = True
-print("Vamos a crear un personaje")
+print("Estos son los personajes disponibles:")
+# PERSONAJES
+goku = Sayajin("Goku", 150, 100, 80, 150, "sayajin")
+piccolo = Namekiano("Piccolo", 200, 90, 60, 120, "namekiano")
+krillin=Personaje("Krillin",200,80,65, 90,"humano")
+vegeta=Sayajin("Vegeta",180,90,70,100, "sayajin")
+frieza=Personaje("Frieza",200,100,85,150, "monstruo")
 
 equipo1 = []
 equipo2 = []
 
+equipo1.append(goku)
+equipo1.append(piccolo)
+equipo1.append(krillin)
+
+equipo2.append(vegeta)
+equipo2.append(frieza) 
+
+print("Equipo 1:")
+for personaje in equipo1:
+    print(f"{personaje.nombre}")
+
+print("Equipo 2:")
+
+for personaje in equipo2:
+    print(f"{personaje.nombre}")
+
+nuevo= input("¿Deseas añadir más personajes a los equipos? (s/n): ")
+
+if nuevo == "s" or nuevo == "si":
+    otro = True
+else:
+    otro = False
+
+print("Vamos a crear un personaje")
 def crear():
     nombre = input("Introduce el nombre del personaje: ")
     
@@ -70,7 +99,7 @@ def crear():
 
 while otro:
     otro = crear()
-
+        
 print("Empecemos el combate")
 print("Se enfrentará el Equipo 1, formado por:")
 
@@ -96,7 +125,7 @@ def combate():
             print(f"{defensor2.nombre} ha sido derrotado")
             equipo2.remove(defensor2)
         else:
-            if isinstance(atacante1, Namekiano) and random.random() < 0.3:
+            if isinstance(atacante1, Namekiano)and random.random() < 0.5:
                 atacante1.curar()
             if isinstance(atacante1, Sayajin) and random.random() < 0.5:
                 atacante1.transformar()
@@ -114,7 +143,7 @@ def combate():
             print(f"{defensor1.nombre} ha sido derrotado")
             equipo1.remove(defensor1)
         else:
-            if isinstance(atacante2, Namekiano) and random.random() < 0.3:
+            if isinstance(atacante2, Namekiano)and random.random() < 0.5:
                 atacante2.curar()
             if isinstance(atacante2, Sayajin) and random.random() < 0.5:
                 atacante2.transformar()
